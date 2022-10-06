@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Movie({ posterURL, title, id}) {
     return (
         <>
-            <Link to={`/sessions/${id}`}>
+            <Link to={`/sessoes/${id}`}>
                 <MovieList>
                     <img src={posterURL} alt={title}></img>
                 </MovieList>
