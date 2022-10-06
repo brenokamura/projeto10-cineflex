@@ -26,7 +26,7 @@ export default function Sessions(){
 <>
             <TitleContainer>Selecione o horário</TitleContainer>
             <SessionsContainer>
-                {sessoes.map(sessao => <Session weekday={sessao.weeday}  day={sessao.day} time={sessao.showtime.name}/>)}
+                {sessoes.map(sessao => <Session weekday={sessao.weeday}  day={sessao.day} time={sessao.showtimes}/>)}
             </SessionsContainer>
         </>
 
