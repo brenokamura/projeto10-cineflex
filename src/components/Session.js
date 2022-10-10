@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-<<<<<<< HEAD
 export default function Session({ weekday, date, showtimes }) {
   return (
     <SessionContainer data-identifier="session-date">
@@ -38,40 +37,6 @@ const ButtonsContainer = styled.div`
   align-items: center;
 `;
 
-=======
-function Session({ weekday, date, showtimes }) {
-  return (
-    <Container>
-      {`${weekday} - ${date}`}
-      <Buttons>
-        {showtimes.map((time) => (
-          <Button key={time.id}>
-            {time.name}
-          </Button>
-        ))}
-      </Buttons>
-    </Container>
-  );
-}
-
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 10px;
-  font-size: 20px;
-  box-sizing: border-box;
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  justify-content: left;
-  margin-top: 20px;
-  align-items: center;
-`;
-
->>>>>>> 0bbf068bc890cd2a70685fe7108816d9c2317cb8
 const Button = styled.div`
   display: flex;
   height: 32px;

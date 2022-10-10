@@ -26,6 +26,5 @@ const HearderTop = styled.div
         font-size: 34px;
         line-height: 40px;
         color: #E8833A;
-
     }
 `

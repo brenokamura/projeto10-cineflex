@@ -41,7 +41,6 @@ const Miniature = styled.div`
   background-color: #ffffff;
   box-shadow: 0 0 1px 1px #33333360;
   border-radius: 2px;
-
   img {
     width: 100%;
     height: 100%;

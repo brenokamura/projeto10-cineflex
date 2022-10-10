@@ -322,7 +322,6 @@ const InputWrapper = styled.form`
   font-size: 18px;
   color: #293845;
   box-sizing: border-box;
-
   input {
     display: flex;
     width: 100%;
@@ -359,7 +358,6 @@ const Submit = styled.button`
   color: #ffffff;
   font-size: 18px;
   border: none;
-
   box-sizing: border-box;
   &:hover {
     cursor: pointer;
