@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-function Infobox({ header = "", main = "", info = "", extra = "" }) {
+function BoxContainer({ header = "", main = "", info = "", extra = "" }) {
   return (
     <>
       <Title>{header}</Title>
@@ -51,26 +51,26 @@ export default function Success() {
 
   return (
     <Content>
-      <Header>Pedido feito com sucesso!</Header>
+      <TitleContainer>Pedido feito com sucesso!</TitleContainer>
       <Container>
-        <Infobox
+        <BoxContainer
           data-identifier="movie-session-infos-reserve-finished"
           header="Filme e sessão"
           main={movieData.title ? movieData.title : ""}
           info={movieData.date ? movieData.date : "29/04/1994 23:55"}
         />
       </Container>
-      <Infowrapper>
+      <InfoContainer>
         {clientData.length &&
           clientData.map((client, index) => (
             <Container key={index}>
-              <Infobox
+              <BoxContainer
                 data-identifier="seat-infos-reserve-finished"
                 header={"Ingresso"}
                 main={client.idAssento}
                 extra={"Assento"}
               />
-              <Infobox
+              <BoxContainer
                 data-identifier="buyer-infos-reserve-finished"
                 header={"Comprador"}
                 main={`Nome: ${client.nome}`}
@@ -78,7 +78,7 @@ export default function Success() {
               />
             </Container>
           ))}
-      </Infowrapper>
+      </InfoContainer>
       <Button data-identifier="back-to-home-btn" onClick={backHome}>
         Voltar para Home
       </Button>
@@ -97,12 +97,12 @@ const Content = styled.div`
   overflow-x: none;
 `;
 
-const Infowrapper = styled.div`
+const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 360px;
-  overflow-y: scroll;
+  height: 100%;
+  overflow-y: hidden;
 `;
 
 const Container = styled.ul`
@@ -131,21 +131,18 @@ const Title = styled.li`
   padding-bottom: 8px;
 `;
 
-const Header = styled.h1`
+const TitleContainer = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
   height: 30px;
   width: 100%;
   margin-top: 25px;
-  margin-bottom: 10px;
-  padding: 0 20px;
+  text-align: center;
   font-size: 24px;
-  font-weight: bold;
   color: #247a6b;
-  box-sizing: border-box;
 `;
+
 
 const Button = styled.button`
   display: flex;

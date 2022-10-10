@@ -21,7 +21,7 @@ export default function Sessions() {
   }, []);
 
   return (
-    <Content>
+    <Container>
       <TitleContainer>Selecione o horário</TitleContainer>
       {session.map((item) => (
         <Session
@@ -32,11 +32,11 @@ export default function Sessions() {
         />
       ))}
       <Footer title={filme.title} poster={filme.posterURL} />
-    </Content>
+    </Container>
   );
 }
 
-const Content = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;

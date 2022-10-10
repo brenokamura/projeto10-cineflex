@@ -3,13 +3,13 @@ import styled from "styled-components";
 export default function Footer({ poster, title, name = "", weekday }) {
   return (
     <Container>
-      <Miniature data-identifier="movie-img-preview">
+      <PosterContainer data-identifier="movie-img-preview">
         <img src={poster} alt={title} />
-      </Miniature>
-      <Infobox data-identifier="movie-and-session-infos-preview">
-        <Info>{title}</Info>
-        <Info>{name.length === 0 ? "" : `${weekday} - ${name}`}</Info>
-      </Infobox>
+      </PosterContainer>
+      <MovieContainer data-identifier="movie-and-session-infos-preview">
+        <MovieInformation>{title}</MovieInformation>
+        <MovieInformation>{name.length === 0 ? "" : `${weekday} - ${name}`}</MovieInformation>
+      </MovieContainer>
     </Container>
   );
 }
@@ -29,7 +29,7 @@ const Container = styled.div`
   left: 0;
 `;
 
-const Miniature = styled.div`
+const PosterContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,12 +48,12 @@ const Miniature = styled.div`
   }
 `;
 
-const Infobox = styled.div`
+const MovieContainer = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-const Info = styled.p`
+const MovieInformation = styled.p`
   display: flex;
   width: 100%;
 `;

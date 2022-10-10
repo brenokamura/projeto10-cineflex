@@ -164,8 +164,8 @@ export default function Reservation() {
   }
 
   return (
-    <Content>
-      <Header>Selecione o(s) assento(s)</Header>
+    <Container>
+      <TitleContainer>Selecione o(s) assento(s)</TitleContainer>
       <Seats>
         {seats.map((seat, index) => (
           <Seat
@@ -179,33 +179,33 @@ export default function Reservation() {
             {seat.name}{" "}
           </Seat>
         ))}
-        <Tooltip>
-          <Box>
+        <SeatList>
+          <SeatKind>
             <Seat
               data-identifier="seat-selected-subtitle"
               isAvailable={false}
               isSelected={true}
             ></Seat>
             Selecionado
-          </Box>
-          <Box>
+          </SeatKind>
+          <SeatKind>
             <Seat
               data-identifier="seat-available-subtitle"
               isAvailable={true}
             ></Seat>
             Disponível
-          </Box>
-          <Box>
+          </SeatKind>
+          <SeatKind>
             <Seat
               data-identifier="seat-unavailable-subtitle"
               isAvailable={false}
             ></Seat>
             Indisponível
-          </Box>
-        </Tooltip>
+          </SeatKind>
+        </SeatList>
       </Seats>
-      <InputWrapper onSubmit={handleSubmit}>
-        <Innerbox>
+      <InputContainer onSubmit={handleSubmit}>
+        <BoxContainer>
           {reserved.length > 0 &&
             reserved.map((seatNum, index) => (
               <Forms
@@ -216,27 +216,27 @@ export default function Reservation() {
                 forms={forms}
               />
             ))}
-        </Innerbox>
-        <Submit
+        </BoxContainer>
+        <Button
           data-identifier="reservation-btn"
           disabled={reserved.length > 0 ? false : true}
           recolor={reserved.length}
           type="submit"
         >
           Reservar assento(s)
-        </Submit>
-      </InputWrapper>
+        </Button>
+      </InputContainer>
       <Footer
         poster={movieData.posterURL}
         weekday={day.weekday}
         title={movieData.title}
         name={session.name}
       />
-    </Content>
+    </Container>
   );
 }
 
-const Header = styled.h1`
+const TitleContainer = styled.h1`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -247,7 +247,7 @@ const Header = styled.h1`
   font-size: 24px;
 `;
 
-const Content = styled.div`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -268,6 +268,7 @@ const Seats = styled.div`
   padding: 0 3vw;
   box-sizing: border-box;
   overflow-y: hidden;
+  cursor: pointer;
 `;
 
 const Seat = styled.div`
@@ -281,7 +282,7 @@ const Seat = styled.div`
   margin: 5px;
   color: black;
   background-color: ${(props) =>
-    props.isSelected ? "#8DD7CF" : props.isAvailable ? "#C3CFD9" : "#FBE192"};
+    props.isSelected ? "#0E7D71" : props.isAvailable ? "#C3CFD9" : "#FBE192"};
   border: ${(props) =>
     props.isSelected
       ? "1px solid #1AAE9E"
@@ -293,7 +294,7 @@ const Seat = styled.div`
   }
 `;
 
-const Tooltip = styled.div`
+const SeatList = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -302,7 +303,7 @@ const Tooltip = styled.div`
   margin: 25px 0;
 `;
 
-const Box = styled.div`
+const SeatKind = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -312,16 +313,20 @@ const Box = styled.div`
   color: #4e5a65;
 `;
 
-const InputWrapper = styled.form`
+const InputContainer = styled.form`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: auto;
+  height: 100%;
   margin: 10px 0;
   padding: 0 3%;
   font-size: 18px;
   color: #293845;
   box-sizing: border-box;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
   input {
     display: flex;
     width: 100%;
@@ -343,7 +348,7 @@ const InputWrapper = styled.form`
   }
 `;
 
-const Submit = styled.button`
+const Button = styled.button`
   display: flex;
   height: 48px;
   width: 60%;
@@ -364,7 +369,7 @@ const Submit = styled.button`
   }
 `;
 
-const Innerbox = styled.div`
+const BoxContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
