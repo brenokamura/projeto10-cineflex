@@ -21,4 +21,7 @@ const MovieList = styled.ul`
   width: 129px;
   left: 38px;
   top: 177px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 5px 5px #33333360;
+  border-radius: 5px;
 `;
