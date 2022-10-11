@@ -57,6 +57,6 @@ const MoviesContainer = styled.div`
   flex-wrap: wrap;
   height: 100vh;
   padding: 5px;
-  gap: 15px 25px;
+  gap: 15px 15px;
   margin: 5px 40px;
 `;
