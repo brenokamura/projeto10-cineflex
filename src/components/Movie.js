@@ -18,7 +18,7 @@ export default Movie;
 const MovieList = styled.ul`
   display: flex;
   height: 193px;
-  width: 129px;
+  width: 120px;
   left: 38px;
   top: 177px;
   background-color: #FFFFFF;
